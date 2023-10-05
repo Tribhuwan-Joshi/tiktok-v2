@@ -6,6 +6,26 @@ export interface RandomUser {
   image: string;
 }
 
+export interface PostWithProfile {
+  id: string;
+  user_id: string;
+  video_url: string;
+  text: string;
+  created_at: string;
+  profile: {
+    user_id: string;
+    name: string;
+    image: string;
+  };
+}
+
+//////////////////////////////////////////
+//////////////////////////////////////////
+
+export interface PostMainCompTypes {
+  post: PostWithProfile;
+}
+
 export interface MenuItemsTypes {
   iconString: string;
   colorString: string;
