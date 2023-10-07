@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import TopNav from "./includes/TopNav";
 import SideNavMain from "./includes/SideNavMain";
 
-function MainLayout({ children }: { children: React.ReactNode }) {
+function MainLayout({ children }: { children: React.ReactNode}) {
   const pathname = usePathname();
 
   return (
