@@ -4,24 +4,24 @@ import PostUser from "@/app/components/profile/PostUser";
 import MainLayout from "@/app/layouts/MainLayout";
 import { BsPencil } from "react-icons/bs";
 import { useEffect } from "react";
-// import { useUser } from "@/app/context/user";
+import { useUser } from "@/app/context/user";
 import ClientOnly from "@/app/components/ClientOnly";
 import { ProfilePageTypes, User } from "@/app/types";
-// import { usePostStore } from "@/app/stores/post";
-// import { useProfileStore } from "@/app/stores/profile";
-// import { useGeneralStore } from "@/app/stores/general";
-// import useCreateBucketUrl from "@/app/hooks/useCreateBucketUrl";
+import { usePostStore } from "@/app/stores/post";
+import { useProfileStore } from "@/app/stores/profile";
+import { useGeneralStore } from "@/app/stores/general";
+import useCreateBucketUrl from "@/app/hooks/useCreateBucketUrl";
 
 export default function Profile({ params }: ProfilePageTypes) {
-//   const contextUser = useUser();
-//   let { postsByUser, setPostsByUser } = usePostStore();
-//   let { setCurrentProfile, currentProfile } = useProfileStore();
-//   let { isEditProfileOpen, setIsEditProfileOpen } = useGeneralStore();
+  const contextUser = useUser();
+  let { postsByUser, setPostsByUser } = usePostStore();
+  let { setCurrentProfile, currentProfile } = useProfileStore();
+  let { isEditProfileOpen, setIsEditProfileOpen } = useGeneralStore();
 
-//   useEffect(() => {
-//     setCurrentProfile(params?.id);
-//     setPostsByUser(params?.id);
-//   }, []);
+  useEffect(() => {
+    setCurrentProfile(params?.id);
+    setPostsByUser(params?.id);
+  }, []);
 
   return (
     <>
