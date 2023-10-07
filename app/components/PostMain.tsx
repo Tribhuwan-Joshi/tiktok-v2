@@ -4,6 +4,7 @@ import { PostMainCompTypes } from "../types";
 import Link from "next/link";
 import { AiFillHeart } from "react-icons/ai";
 import { ImMusic } from "react-icons/im";
+import PostMainLikes from "./PostMainLikes";
 
 function PostMain({ post }: PostMainCompTypes) {
   useEffect(() => {
@@ -64,7 +65,13 @@ function PostMain({ post }: PostMainCompTypes) {
                 className="rounded-xl object-cover mx-auto h-full"
                 src={post?.video_url}
               />
+              <img
+                className="absolute right-2 bottom-10"
+                width="90"
+                src="/images/tiktok-logo-white.png"
+              />
             </div>
+            <PostMainLikes post={post} />
           </div>
         </div>
       </div>
