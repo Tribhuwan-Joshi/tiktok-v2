@@ -81,7 +81,7 @@ export default function Post({ params }: PostPageTypes) {
           />
 
           <ClientOnly>
-            {postById?.video_url ? (
+            {postById?.video_url ? 
               <video
                 className="fixed object-cover w-full my-auto z-[0] h-screen"
                 src={useCreateBucketUrl(postById?.video_url)}
