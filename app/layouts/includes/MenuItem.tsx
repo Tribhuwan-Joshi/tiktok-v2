@@ -1,11 +1,11 @@
 "use client";
 
-import { MenuItemsTypes } from "@/app/types";
+import { MenuItemTypes } from "@/app/types";
 import { AiOutlineHome } from "react-icons/ai";
 import { BsCameraVideo } from "react-icons/bs";
 import { RiGroupLine } from "react-icons/ri";
 
-function MenuItem({ iconString, colorString, sizeString }: MenuItemsTypes) {
+function MenuItem({ iconString, colorString, sizeString }: MenuItemTypes) {
   const icons = () => {
     if (iconString == "For You")
       return <AiOutlineHome size={sizeString} color={colorString} />;
