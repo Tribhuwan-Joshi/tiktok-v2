@@ -4,8 +4,9 @@ import "./globals.css";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "TikTok Clone",
-  description: "TikTok Clone",
+  title: "TikTok-v2",
+  description:
+    "TikTok clone created by Tjsm. I was hiding too , it's alright. ",
 };
 
 export default function RootLayout({

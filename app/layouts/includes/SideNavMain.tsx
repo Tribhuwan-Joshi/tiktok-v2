@@ -73,7 +73,7 @@ function SideNavMain() {
           <div className="lg:block hidden border-b lg:ml-2 mt-2" />
           <div className="lg:block hidden text-[11px] text-gray-500">
             <p className="pt-4 px-2">
-              About Newsroom TikTok Shop Contact Careers ByteDance
+             TikTok-v2 - Created by Tjsm.
             </p>
             <p className="pt-4 px-2">
               TikTok for Good Advertise Developers Transparency TikTok Rewards
