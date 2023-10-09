@@ -1,9 +1,11 @@
+import UserProvider from "./context/user";
+import AllOverlays from "@/app/components/AllOverlays";
 import "./globals.css";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "TikTok-v2",
-  description: "TikTok v2 created by Tjsm",
+  title: "TikTok Clone",
+  description: "TikTok Clone",
 };
 
 export default function RootLayout({
@@ -13,7 +15,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <UserProvider>
+        <body>
+          <AllOverlays />
+          {children}
+        </body>
+      </UserProvider>
     </html>
   );
 }

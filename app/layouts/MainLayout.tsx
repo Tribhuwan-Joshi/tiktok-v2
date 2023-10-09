@@ -1,10 +1,13 @@
-"use client";
 import React from "react";
-import { usePathname } from "next/navigation";
-import TopNav from "./includes/TopNav";
 import SideNavMain from "./includes/SideNavMain";
+import TopNav from "./includes/TopNav";
+import { usePathname } from "next/navigation";
 
-function MainLayout({ children }: { children: React.ReactNode}) {
+export default function MainLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const pathname = usePathname();
 
   return (
@@ -15,10 +18,9 @@ function MainLayout({ children }: { children: React.ReactNode}) {
           pathname == "/" ? "max-w-[1140px]" : ""
         }`}
       >
-        <SideNavMain/>
+        <SideNavMain />
         {children}
       </div>
     </>
   );
 }
-export default MainLayout;

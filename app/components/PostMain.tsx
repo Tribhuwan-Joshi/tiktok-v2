@@ -1,18 +1,20 @@
 "use client";
-import { useEffect } from "react";
-import { PostMainCompTypes } from "../types";
-import Link from "next/link";
+
 import { AiFillHeart } from "react-icons/ai";
 import { ImMusic } from "react-icons/im";
+import Link from "next/link";
+import { useEffect } from "react";
 import PostMainLikes from "./PostMainLikes";
+import useCreateBucketUrl from "../hooks/useCreateBucketUrl";
+import { PostMainCompTypes } from "../types";
 
-function PostMain({ post }: PostMainCompTypes) {
+export default function PostMain({ post }: PostMainCompTypes) {
   useEffect(() => {
     const video = document.getElementById(
       `video-${post?.id}`
     ) as HTMLVideoElement;
-
     const postMainElement = document.getElementById(`PostMain-${post.id}`);
+
     if (postMainElement) {
       let observer = new IntersectionObserver(
         (entries) => {
@@ -20,19 +22,22 @@ function PostMain({ post }: PostMainCompTypes) {
         },
         { threshold: [0.6] }
       );
+
       observer.observe(postMainElement);
     }
-  });
+  }, []);
+
   return (
     <>
-      <div className="flex border-b py-6">
+      <div id={`PostMain-${post.id}`} className="flex border-b py-6">
         <div className="cursor-pointer">
           <img
             className="rounded-full max-h-[60px]"
             width="60"
-            src={post?.profile.image}
+            src={useCreateBucketUrl(post?.profile?.image)}
           />
         </div>
+
         <div className="pl-3 w-full px-4">
           <div className="flex items-center justify-between pb-0.5">
             <Link href={`/profile/${post.profile.user_id}`}>
@@ -40,7 +45,8 @@ function PostMain({ post }: PostMainCompTypes) {
                 {post.profile.name}
               </span>
             </Link>
-            <button className="border text-[15px] px-[21px] py-0.5 border-[#F02C56] text-[#F02C56]  font-semibold rounded-md hover:bg-[#ffeef2]">
+
+            <button className="border text-[15px] px-[21px] py-0.5 border-[#F02C56] text-[#F02C56] hover:bg-[#ffeef2] font-semibold rounded-md">
               Follow
             </button>
           </div>
@@ -50,20 +56,21 @@ function PostMain({ post }: PostMainCompTypes) {
           <p className="text-[14px] text-gray-500 pb-0.5">
             #fun #cool #SuperAwesome
           </p>
-          <p className="text-[14px] flex items-center font-semibold pb-0.5">
+          <p className="text-[14px] pb-0.5 flex items-center font-semibold">
             <ImMusic size="17" />
-            <span className="px-1">Original sound- Awesome</span>
+            <span className="px-1">original sound - AWESOME</span>
             <AiFillHeart size="20" />
           </p>
+
           <div className="mt-2.5 flex">
-            <div className="relative min-h-[480px] max-h[580px] max-w-[260px] flex items-center bg-black rounded-xl cursor-pointer">
+            <div className="relative min-h-[480px] max-h-[580px] max-w-[260px] flex items-center bg-black rounded-xl cursor-pointer">
               <video
                 id={`video-${post.id}`}
                 loop
                 controls
                 muted
                 className="rounded-xl object-cover mx-auto h-full"
-                src={post?.video_url}
+                src={useCreateBucketUrl(post?.video_url)}
               />
               <img
                 className="absolute right-2 bottom-10"
@@ -71,6 +78,7 @@ function PostMain({ post }: PostMainCompTypes) {
                 src="/images/tiktok-logo-white.png"
               />
             </div>
+
             <PostMainLikes post={post} />
           </div>
         </div>
@@ -78,4 +86,3 @@ function PostMain({ post }: PostMainCompTypes) {
     </>
   );
 }
-export default PostMain;
